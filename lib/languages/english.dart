@@ -9,7 +9,7 @@ class EnglishNumberScheme extends LanguageNumberScheme {
   final num maxNumber = 9223372036854775807;
 
   @override
-  final int maxDecimals = 35;
+  final int maxDecimals = 14;
 
   final NumberFormat format = NumberFormat.decimalPattern("en_US");
 
@@ -26,10 +26,10 @@ class EnglishNumberScheme extends LanguageNumberScheme {
       throw TooLargeNumberException(number, maxNumber);
     }
 
+    number = removeDecimalZeros(number);
+
     if (hasComma(number)) {
-      print("yes");
-      Tuple2<num, num?> numParts = splitByComma(removeDecimalZeros(number));
-      print(numParts);
+      Tuple2<num, num?> numParts = splitByComma(number);
       String partOne = toWord(numParts.item1);
       String partTwo = toWord(numParts.item2!);
       late String endPart;
@@ -74,79 +74,79 @@ class EnglishNumberScheme extends LanguageNumberScheme {
         case 13:
           endPart = addHyphens ? " ten-trillionth" : " ten trillionth";
           break;
-        case 14:
-          endPart = addHyphens ? " hundred-trillionth" : " hundred trillionth";
-          break;
-        case 15:
-          endPart = " quadrillionth";
-          break;
-        case 16:
-          endPart = addHyphens ? " ten-quadrillionth" : " ten quadrillionth";
-          break;
-        case 17:
-          endPart =
-              addHyphens ? " hundred-quadrillionth" : " hundred quadrillionth";
-          break;
-        case 18:
-          endPart = " quintillionth";
-          break;
-        case 19:
-          endPart = addHyphens ? " ten-quintillionth" : " ten quintillionth";
-          break;
-        case 20:
-          endPart =
-              addHyphens ? " hundred-quintillionth" : " hundred quintillionth";
-          break;
-        case 21:
-          endPart = " sextillionth";
-          break;
-        case 22:
-          endPart = addHyphens ? " ten-sextillionth" : " ten sextillionth";
-          break;
-        case 23:
-          endPart =
-              addHyphens ? " hundred-sextillionth" : " hundred sextillionth";
-          break;
-        case 24:
-          endPart = " septillionth";
-          break;
-        case 25:
-          endPart = addHyphens ? " ten-septillionth" : " ten septillionth";
-          break;
-        case 26:
-          endPart =
-              addHyphens ? " hundred-septillionth" : " hundred septillionth";
-          break;
-        case 27:
-          endPart = " octillionth";
-          break;
-        case 28:
-          endPart = addHyphens ? " ten-octillionth" : " ten octillionth";
-          break;
-        case 29:
-          endPart =
-              addHyphens ? " hundred-octillionth" : " hundred octillionth";
-          break;
-        case 30:
-          endPart = " nonillionth";
-          break;
-        case 31:
-          endPart = addHyphens ? " ten-nonillionth" : " ten nonillionth";
-          break;
-        case 32:
-          endPart =
-              addHyphens ? " hundred-nonillionth" : " hundred nonillionth";
-          break;
-        case 33:
-          endPart = " decillionth";
-          break;
-        case 34:
-          endPart = addHyphens ? " ten-decillionth" : " ten decillionth";
-          break;
-        case 35:
-          endPart =
-              addHyphens ? " hundred-decillionth" : " hundred decillionth";
-          break;
+        // case 14:
+        //   endPart = addHyphens ? " hundred-trillionth" : " hundred trillionth";
+        //   break;
+        // case 15:
+        //   endPart = " quadrillionth";
+        //   break;
+        // case 16:
+        //   endPart = addHyphens ? " ten-quadrillionth" : " ten quadrillionth";
+        //   break;
+        // case 17:
+        //   endPart =
+        //       addHyphens ? " hundred-quadrillionth" : " hundred quadrillionth";
+        //   break;
+        // case 18:
+        //   endPart = " quintillionth";
+        //   break;
+        // case 19:
+        //   endPart = addHyphens ? " ten-quintillionth" : " ten quintillionth";
+        //   break;
+        // case 20:
+        //   endPart =
+        //       addHyphens ? " hundred-quintillionth" : " hundred quintillionth";
+        //   break;
+        // case 21:
+        //   endPart = " sextillionth";
+        //   break;
+        // case 22:
+        //   endPart = addHyphens ? " ten-sextillionth" : " ten sextillionth";
+        //   break;
+        // case 23:
+        //   endPart =
+        //       addHyphens ? " hundred-sextillionth" : " hundred sextillionth";
+        //   break;
+        // case 24:
+        //   endPart = " septillionth";
+        //   break;
+        // case 25:
+        //   endPart = addHyphens ? " ten-septillionth" : " ten septillionth";
+        //   break;
+        // case 26:
+        //   endPart =
+        //       addHyphens ? " hundred-septillionth" : " hundred septillionth";
+        //   break;
+        // case 27:
+        //   endPart = " octillionth";
+        //   break;
+        // case 28:
+        //   endPart = addHyphens ? " ten-octillionth" : " ten octillionth";
+        //   break;
+        // case 29:
+        //   endPart =
+        //       addHyphens ? " hundred-octillionth" : " hundred octillionth";
+        //   break;
+        // case 30:
+        //   endPart = " nonillionth";
+        //   break;
+        // case 31:
+        //   endPart = addHyphens ? " ten-nonillionth" : " ten nonillionth";
+        //   break;
+        // case 32:
+        //   endPart =
+        //       addHyphens ? " hundred-nonillionth" : " hundred nonillionth";
+        //   break;
+        // case 33:
+        //   endPart = " decillionth";
+        //   break;
+        // case 34:
+        //   endPart = addHyphens ? " ten-decillionth" : " ten decillionth";
+        //   break;
+        // case 35:
+        //   endPart =
+        //       addHyphens ? " hundred-decillionth" : " hundred decillionth";
+        //   break;
         default:
           throw TooManyDecimalValues(
             number,
@@ -197,51 +197,51 @@ class EnglishNumberScheme extends LanguageNumberScheme {
       case 6:
         name = " quintillion";
         break;
-      case 7:
-        name = " sextillion";
-        break;
-      case 8:
-        name = " septillion";
-        break;
-      case 9:
-        name = " octillion";
-        break;
-      case 10:
-        name = " nonillion";
-        break;
-      case 11:
-        name = " decillion";
-        break;
-      case 12:
-        name = " decillion";
-        break;
-      case 13:
-        name = " duodecillion";
-        break;
-      case 14:
-        name = " tredecillion";
-        break;
-      case 15:
-        name = " quattuordecillion";
-        break;
-      case 16:
-        name = " quindecillion";
-        break;
-      case 17:
-        name = " sexdecillion";
-        break;
-      case 18:
-        name = " septendecillion";
-        break;
-      case 19:
-        name = " octodecillion";
-        break;
-      case 20:
-        name = " novemdecillion";
-        break;
-      case 21:
-        name = " vigintillion";
-        break;
+      // case 7:
+      //   name = " sextillion";
+      //   break;
+      // case 8:
+      //   name = " septillion";
+      //   break;
+      // case 9:
+      //   name = " octillion";
+      //   break;
+      // case 10:
+      //   name = " nonillion";
+      //   break;
+      // case 11:
+      //   name = " decillion";
+      //   break;
+      // case 12:
+      //   name = " decillion";
+      //   break;
+      // case 13:
+      //   name = " duodecillion";
+      //   break;
+      // case 14:
+      //   name = " tredecillion";
+      //   break;
+      // case 15:
+      //   name = " quattuordecillion";
+      //   break;
+      // case 16:
+      //   name = " quindecillion";
+      //   break;
+      // case 17:
+      //   name = " sexdecillion";
+      //   break;
+      // case 18:
+      //   name = " septendecillion";
+      //   break;
+      // case 19:
+      //   name = " octodecillion";
+      //   break;
+      // case 20:
+      //   name = " novemdecillion";
+      //   break;
+      // case 21:
+      //   name = " vigintillion";
+      //   break;
       default:
         throw TooLargeNumberException(_number, maxNumber);
     }
@@ -341,4 +341,9 @@ class EnglishNumberScheme extends LanguageNumberScheme {
         return "";
     }
   }
+}
+
+void main() {
+  var scheme = EnglishNumberScheme();
+  print(scheme.toWord(10.0));
 }

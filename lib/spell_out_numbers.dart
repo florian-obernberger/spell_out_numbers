@@ -45,7 +45,7 @@ abstract class LanguageNumberScheme {
   /// Returns both parts of the number if a comma is present, otherwise returns
   /// the original number and null.
   Tuple2<num, num?> splitByComma(num number) {
-    if (hasComma(number)) {
+    if (!hasComma(number)) {
       return Tuple2(number, null);
     }
     List<String> numParts = number.toString().split(".");
@@ -55,7 +55,7 @@ abstract class LanguageNumberScheme {
 
   /// Removes all trailing zeros after a comma.
   num removeDecimalZeros(num number) {
-    if (hasComma(number)) {
+    if (!hasComma(number)) {
       return number;
     }
     return num.parse(
