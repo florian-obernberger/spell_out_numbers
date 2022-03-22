@@ -13,28 +13,44 @@ and the Flutter guide for
 
 # Spell Out Numbers
 
-![license badge](https://img.shields.io/github/license/florian-obernberger/spell_out_numbers)
+[![License](https://img.shields.io/github/license/florian-obernberger/spell_out_numbers)](./LICENSE)
+[![Dart](https://github.com/florian-obernberger/spell_out_numbers/actions/workflows/dart.yml/badge.svg)](https://github.com/florian-obernberger/spell_out_numbers/actions/workflows/dart.yml)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Writes put the name of a number given in different languages.
+Currently only English is supported, but in the future I will
+add more languages. If anyone is interested in helping me with
+that, feel free to contact me / open an issue.
 
-## Getting started
+## Language Support
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- [x] English
+- [ ] German / Deutsch
+- [ ] Spanish / Español
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+There is one abstract class (`LanguageNumberScheme`) that all
+other classes inherit from. This class and all classes extending
+this one provide amongst others the following methods and getters:
+
+- `toWord(num number)`: converts the number given into words
+- `num get maxNumber;`: the largest number supported by the scheme
+- `int get maxDecimals;`: the maximum number of decimal values
+
+## Examples
 
 ```dart
-const like = 'sample';
+LanguageNumberScheme scheme = EnglishNumberScheme();
+
+print(scheme.toWord(10));
+// ten
 ```
 
-## Additional information
+```dart
+LanguageNumberScheme scheme = EnglishNumberScheme();
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+print(scheme.toWord(-1398));
+// minus one thousand three hundred ninety eight
+```
