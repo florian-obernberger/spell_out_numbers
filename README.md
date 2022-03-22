@@ -11,10 +11,9 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-![logo of the repository](./spell_out_numbers.png)
+# Spell Out Numbers
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+![license badge](https://img.shields.io/github/license/florian-obernberger/spell_out_numbers)
 
 ## Features
 
