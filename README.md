@@ -11,6 +11,8 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
+![logo of the repository](./spell_out_numbers.png)
+
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
 
