@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:spell_out_numbers/spell_out_numbers.dart';
 
 void main() {
